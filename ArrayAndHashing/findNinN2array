@@ -1,0 +1,33 @@
+class Solution {
+    public int repeatedNTimes(int[] nums) {
+        Map<Integer, Integer> hm = new HashMap();
+        int target = nums.length/2;
+        for(int val : nums){
+            hm.put(val, hm.getOrDefault(val, 0) + 1);
+            if(hm.get(val) == target){
+                return val;
+            } 
+        }
+        return 0;
+    }
+}
+
+/*
+Step 1
+So in example given
+Input: nums = [1,2,3,3]
+n = 2
+2*n = 4 = length
+nums contains n+1 unique vals = 3
+exactly one element is repeated n times. 
+edge case n = 0?
+length = 0 then no array. 
+Unordered. 
+
+Step 2
+Algorithm selection
+This is a classic hash question. go through the array, counting how many of each number there is. 
+Use a set to remove things if they go over. 
+
+
+*/
